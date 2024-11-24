@@ -48,7 +48,7 @@ COUT=(A&B) | (CIN&(A^B))
 Note : File name should be with HDL Extension
 
 ### Verilog code 1 Bit Full Adder
-
+~~~
 module full_adder (A, B, CIN, S, COUT);
 
 input A, B, CIN;
@@ -60,6 +60,7 @@ assign S=A^B^CIN;
 assign COUT=(A&B) | (CIN&(A^B));
 
 endmodule
+~~~
 
 ### a) Verify the Functionality 
 
