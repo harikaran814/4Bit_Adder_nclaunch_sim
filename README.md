@@ -89,7 +89,22 @@ endmodule
 •	fa_4bit_test.v → Test bench 
 
 ### Testbench Code for 4 Bit Full Adder
-
+~~~
+module test_4bit;
+reg [3:0] A;
+reg [3:0] B; reg C0;
+wire [3:0] S; wire C4;
+fulladd_4bit dut (A,B,C0,S,C4);
+initial 
+begin
+A=4'b0011;B=4'b0011;C0=1'b0;
+#10;  A=4'b1011;B=4'b0111;C0=1'b1;
+#10; A=4'b1111;B=4'b1111;C0=1'b1;
+#10;
+end initial
+#50 $finish;
+endmodule
+~~~
 
 ## Functional Simulation: 
 
@@ -103,6 +118,8 @@ endmodule
       
 	After this you can see the window like below 
 
+![Screenshot 2024-11-23 150305](https://github.com/user-attachments/assets/cb18f933-e491-452a-9f08-eafcc9def439)
+
 ### Fig 3:Invoke the Cadence Environment
 
 	To Launch Simulation tool 
@@ -115,11 +132,15 @@ or
 
 	It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple Step .
 
+![Screenshot 2024-11-23 150457](https://github.com/user-attachments/assets/2022868a-57d1-43ee-bfeb-93dd902e97bf)
+
 ### Fig 4:Setting Multi-step simulation
 
 	Select Multiple Step and then select “Create cds.lib File” .
 
 	Click the cds.lib file and save the file by clicking on Save option 
+
+![Screenshot 2024-11-23 150512](https://github.com/user-attachments/assets/c9067c64-2694-4f21-aa8a-56bbf166edc8)
 
 ### Fig 5:cds.lib file Creation
 
@@ -131,7 +152,7 @@ or
 
 •	A Click “OK” in the “nclaunch: Open Design Directory” window as shown in below figure 
 
-![image](https://github.com/user-attachments/assets/781b297a-11e9-4140-89c5-ee3b0d15bbd4)
+![Screenshot 2024-11-13 110805](https://github.com/user-attachments/assets/dcac049f-1f57-4ac2-91f3-cd0cde520bc5)
 
 ### Fig 6: Selection of Don’t include any libraries
 
@@ -142,6 +163,8 @@ or
 	Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation .
 
 	To perform the function simulation, the following three steps are involved Compilation, Elaboration and Simulation. 
+
+![Screenshot 2024-11-13 110833](https://github.com/user-attachments/assets/bc01f65b-c24a-422d-b9e4-c49bf30f66ff)
 
 ### Fig 7: Nclaunch Window
 
@@ -161,6 +184,8 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
 Left side select the file and in Tools : launch verilog compiler with current selection will get enable. Click it to compile the code 
 
 Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation
+
+![Screenshot 2024-11-23 150525](https://github.com/user-attachments/assets/2885820b-a852-41cb-8048-511307fe8160)
 
 ### Fig 8: Compiled database in worklib
 
@@ -185,6 +210,8 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
    
 	After elaboration the file will come under snapshot. Select the test bench and elaborate it.
 
+![Screenshot 2024-11-23 150555](https://github.com/user-attachments/assets/fc189389-cc4c-41d3-9f80-04ab2b10f322)
+
 ### Fig 9: Elaboration Launch Option
 
 ## Step 3: Simulation: – Simulate with the given test vectors over a period of time to observe the output behaviour. 
@@ -197,27 +224,20 @@ i.e Cadence IES command for compile: ncverilog +access+rwc -compile fa.v
 
 	Steps for simulation – Run the simulation command with simulator options
 
+![Screenshot 2024-11-23 150827](https://github.com/user-attachments/assets/e72ee7d1-5576-46c6-be40-8420591f9d8d)
+
 ### Fig 10: Design Browser window for simulation
+
+![Screenshot 2024-11-23 151215](https://github.com/user-attachments/assets/070cc139-e576-451b-beff-93cd8c0f2b53)
 
 ### Fig 11: Launching Simulation Waveform WindowSimulation Waveform Window
 
+![Screenshot 2024-11-23 151231](https://github.com/user-attachments/assets/c5680970-a66c-47e8-915d-35ac485d18f4)
+
 ### Fig 12: Simulation Waveform Window
+
 
 ### Result:
 
 The functionality of a 4-bit adder was successfully verified using a test bench and simulated with the nclaunch tool.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
