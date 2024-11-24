@@ -62,6 +62,22 @@ assign COUT=(A&B) | (CIN&(A^B));
 endmodule
 ~~~
 
+### Verilog Code for 4 Bit Full Adder
+~~~
+module full_adder (A, B, CIN, S, COUT);
+
+input A, B, CIN;
+
+output S, COUT;
+
+assign S=A^B^CIN;
+
+assign COUT=(A&B) | (CIN&(A^B));
+
+endmodule
+~~~
+
+
 ### a) Verify the Functionality 
 
 	Three Codes shall be written for implementation of 4-bit Adder as follows, 
@@ -72,8 +88,8 @@ endmodule
 
 •	fa_4bit_test.v → Test bench 
 
-*/Program to design 4 bit adder by instantiating 1 bit Full adder.also add test bench program */
-Developed by: Register Number*/
+### Testbench Code for 4 Bit Full Adder
+
 
 ## Functional Simulation: 
 
